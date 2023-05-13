@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Website</title>
+    <link href="./style.css" rel="stylesheet" type="text/css"/>
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.2.0/highlight.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="a11y-light.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="nnfx-dark.min.css"> -->
+    <script>hljs.highlightAll();</script>
+    <style>  
+      body {
+        margin: 0;
+      }
+
+      #cnblogs_post_body .cnblogs_code {
+      /* background-color: rgba(152, 147, 147, 0.28); */
+      /* border: 1px solid rgba(255, 251, 251, 0); */
+      border-radius: 4px;
+      color: #000;
+      font-family: Courier New !important;
+      font-size: 13px !important;
+      margin: 5px 0;
+      overflow: auto;
+      padding: 5px;
+    }
+    .hljs-built_in,
+    .hljs-keyword,
+    .hljs-name,
+    .hljs-selector-tag,
+    .hljs-tag {
+      color: #332870 !important;
+    }
+
+    .hljs-emphasis,
+    .hljs-strong {
+      color: #a8a8a2 !important;
+    }
+    .hljs-built_in,
+    .hljs-keyword,
+    .hljs-name,
+    .hljs-selector-tag,
+    .hljs-tag {
+      color: #bababa !important;
+    }
+
+    .hljs-bullet,
+    .hljs-link,
+    .hljs-literal,
+    .hljs-number,
+    .hljs-quote,
+    .hljs-regexp {
+      color: #27c94a !important;
+    }
+
+    .hljs-code,
+    .hljs-selector-class {
+      color: #eeff00 !important;
+    }
+
+    .hljs-emphasis {
+      font-style: italic !important;
+    }
+
+    .hljs-attribute,
+    .hljs-keyword,
+    .hljs-name,
+    .hljs-section,
+    .hljs-selector-tag,
+    .hljs-variable {
+      color: #00c3ff !important;
+    }
+
+    .hljs-attr,
+    .hljs-params {
+      color: #b9b9b9 !important;
+    }
+
+    .hljs-string {
+      color: #ffbb00 !important;
+    }
+
+    .hljs-addition,
+    .hljs-built_in,
+    .hljs-builtin-name,
+    .hljs-selector-attr,
+    .hljs-selector-id,
+    .hljs-selector-pseudo,
+    .hljs-subst,
+    .hljs-symbol,
+    .hljs-template-tag,
+    .hljs-template-variable,
+    .hljs-title,
+    .hljs-type {
+      color: #dfe231 !important;
+    }
+
+    .hljs-comment,
+    .hljs-deletion {
+      color: #008839 !important;
+    }
+
+    .hljs-meta {
+      color: #00ff0d !important;
+    }
+    #cnblogs_post_body .toc ul {
+      max-height: 550px;
+      overflow-y: auto;
+    }
+
+    .cnblogs-markdown .hljs {
+      display: block;
+      overflow-x: auto;
+      padding: 0.5em !important;
+      background: #2b2b2b !important;
+      font-size: 14px !important;
+      color: #bababa !important;
+      font-family: Source Code Pro, Consolas, Menlo, Monaco, Courier New,
+        monospace !important;
+    }
+    #cnblogs_post_body h1::before {
+      content: "H1";
+      margin-right: 10px;
+      color: gainsboro;
+    }
+    #cnblogs_post_body h2::before {
+      content: "H2";
+      margin-right: 10px;
+      color: gainsboro;
+    }
+    #cnblogs_post_body h3::before {
+      content: "H3";
+      margin-right: 10px;
+      color: gainsboro;
+    }
+    #mainContent #post_detail #cnblogs_post_body h4::before {
+      content: "h4";
+      margin-right: 10px;
+      color: gainsboro;
+    }
+    #cnblogs_post_body h5::before {
+      content: "h5";
+      margin-right: 10px;
+      color: gainsboro;
+    }
+    #cnblogs_post_body h6::before {
+      content: "h6";
+      margin-right: 10px;
+      color: gainsboro;
+    }
+    #cnblogs_post_body td.hljs-ln-numbers {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+
+      text-align: center;
+      color: #ccc;
+      border-right: 1px solid #ccc;
+      vertical-align: top;
+      padding-right: 5px;
+
+      /* your custom style here */
+    }
+
+    #cnblogs_post_body .hljs td {
+      border-collapse: inherit;
+      min-width: unset;
+      padding-left: 20px;
+      padding-right: 10px;
+    }
+
+    </style>
+  </head>
+  <body>
+    <div style="
+        background-color: #f1f1f1;
+        text-align: center;
+        padding: 40px;
+      ">
+      <img src="https://s1.ax1x.com/2023/05/13/p96o0df.jpg" alt="Nahida" width="300">
+    </div>
+    <div style="
+      max-width: 800px;
+      margin: 15px auto;
+      padding: 30px;
+      line-height: 1.5;
+      "
+    >
+      <p>这是一段求解2维Poisson方程的Python代码</p>
+      <pre id="code_block">
+        <code class="language-python hljs">
+        import numpy as np
+        import matplotlib.pyplot as plt
+
+        # 定义方程
+        def poisson_2d(nx, ny, Lx, Ly):
+
+        # 设定网格间距
+        dx = Lx / (nx - 1)
+        dy = Ly / (ny - 1)
+
+        # 设定进度条件
+        x = np.linspace(0, Lx, nx)
+        y = np.linspace(0, Ly, ny)
+
+        # 设定初始的解向量
+        p = np.zeros((ny, nx))
+
+        # 设定边界条件(Dirichlet条件)
+        p[:, 0] = 0
+        p[:, -1] = np.sin(1.5 * np.pi * y / Ly)
+        p[0, :] = 0
+        p[-1, :] = 0
+
+        # 初始化迭代误差
+        error = 1
+
+        # 设定最大迭代次数和容忍误差
+        iters = 0
+        max_iters = 10000
+        tol = 1e-8
+
+        # 初始化右手边
+        b = np.zeros((ny-2, nx-2))
+
+        while error > tol and iters < max_iters:
+            pn = p.copy()
+
+            # 内部节点(i,j)
+            for j in range(1, ny - 1):
+                for i in range(1, nx - 1):
+                    b[j-1, i-1] = (1 / dx**2) * (pn[j, i+1] - 2*pn[j, i] + pn[j, i-1]) +\
+                                  (1 / dy**2) * (pn[j+1, i] - 2*pn[j, i] + pn[j-1, i])
+
+            # 更新内部节点
+            p[1:-1,1:-1] = 0.25 * (p[1:-1,2:] + p[1:-1,:-2] + p[2:,1:-1] + p[:-2,1:-1] - b)
+
+            #应用Dirichlet条件
+            p[:, 0] = 0
+            p[:, -1] = np.sin(1.5 * np.pi * y / Ly)
+            p[0, :] = 0
+            p[-1, :] = 0
+
+            #计算误差
+            error = np.linalg.norm(p - pn)/np.sqrt(nx*ny)
+
+            #更新迭代次数
+            iters += 1
+
+        #将解决方案呈现为图形
+        X, Y = np.meshgrid(x, y)
+        plt.contourf(X, Y, p, cmap='jet')
+        plt.colorbar()
+        plt.xlabel('x')
+        plt.ylabel('y')
+        plt.title('Solution of 2D Poisson Equation')
+        plt.show()
+
+      # 网格大小
+      nx = 51
+      ny = 51
+
+      # 区域大小
+      Lx = 1
+      Ly = 1
+
+      poisson_2d(nx, ny, Lx, Ly)
+      <!/span>
+      <!/textarea>
+      </code>
+    </pre>
+      <p>My website</p>
+      <p>My website</p>
+      <p>My website</p>
+      <p>My website</p>
+    </div>
+    <div style="
+      background-color: #f1f1f1;
+      text-align: center;
+      padding: 40px;
+    
+    ">
+      <img src="https://www.hxd123.com/wp-content/uploads/2023/04/zuer-1.jpg" alt="Hoshino Ai" width="300">
+      <img src="http://www.hxd123.com/wp-content/uploads/2023/05/1-3.gif" alt="Hoshino Ai" width="300">
+      <video width="300" controls >
+        <source src="http://www.hxd123.com/wp-content/uploads/2023/04/%E7%A5%96%E5%84%BF-1.mp4?_=1" type="video/mp4">
+      </video>
+      <video width="300" controls>
+        <source src="http://www.hxd123.com/wp-content/uploads/2023/04/%E7%A5%96%E5%84%BF-2.mp4?_=3" type="video/mp4">
+      </video>
+      <video width="300" controls>
+        <source src="D:/Downloads/hhd800.com@STARS-145_UNCENSORED_LEAKED.mp4" type="video/mp4">
+      </video>
+      <video width="300" controls>
+        <source src="http://www.hxd123.com/wp-content/uploads/2023/04/1-2.mp4?_=2" type="video/mp4">
+      </video>
+      <video width="300" controls>
+        <source src="http://www.hxd123.com/wp-content/uploads/2023/04/1-1.mp4?_=1" type="video/mp4">
+      </video>
+    </div>
+    <div style="
+        background-color: #f1f1f1;
+        text-align: center;
+        padding: 40px;
+        font-size: 15px;
+      ">
+        <p>©Copyright: Myself</p>
+        <a href="https://space.bilibili.com/11162150">My bilibili homepage</a>
+        <p></p>
+        <a href="https://www.hxd123.com/">Online porn</a>
+      </div>
+
+  </body>
+</html>

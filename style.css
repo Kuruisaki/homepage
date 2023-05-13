@@ -1,0 +1,20 @@
+
+    #code_block {
+    background: #f1f1f1;
+    color: #000000;
+    font-family: Consolas;
+    font-size: 15px;
+    text-align: left;
+    padding: 1em;
+    padding-left: 0.8em;
+    margin: 1em;
+    overflow: auto;
+    border-radius: 5px;
+    counter-reset: line;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    
+}
